@@ -1,0 +1,1241 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>안전 교육 · Anagram Communications, Inc.</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+:root {
+  --white:  #FFFFFF;
+  --off:    #F7F7F6;
+  --border: #E4E4E2;
+  --mid:    #9A9A96;
+  --dark:   #3A3A38;
+  --black:  #111110;
+  --r:      10px;
+  --max:    1280px;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', -apple-system, sans-serif;
+  background: var(--white);
+  color: var(--black);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 3px; }
+::-webkit-scrollbar-track { background: var(--off); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 2px; }
+
+/* ── NAV ── */
+nav {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 44px;
+  background: rgba(255,255,255,0.72);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  border-bottom: 1px solid rgba(228,228,226,0.7);
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+}
+
+.logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+}
+.nav-links a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-links a.active-tab {
+  color: var(--black);
+  font-weight: 600;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.lang-wrap {
+  display: flex;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  overflow: hidden;
+  background: rgba(255,255,255,0.6);
+}
+.lang-btn {
+  padding: 5px 11px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: 0.04em;
+  color: var(--mid);
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: color 0.18s, background 0.18s;
+}
+.lang-btn.active {
+  background: var(--black);
+  color: var(--white);
+}
+
+.btn-contact {
+  padding: 8px 18px;
+  background: var(--black);
+  color: var(--white);
+  font-size: 12px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 6px;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15), 0 1px 2px rgba(0,0,0,0.1);
+  transition: opacity 0.18s, transform 0.18s, box-shadow 0.18s;
+}
+.btn-contact:hover {
+  opacity: 0.82;
+  transform: translateY(-1px);
+  box-shadow: 0 5px 16px rgba(0,0,0,0.2);
+}
+
+/* ── LMS ── */
+.lms-wrap {
+  padding-top: 64px;
+  min-height: 100vh;
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  /* LMS 전용 CSS 변수 (nav/footer와 충돌 방지를 위해 스코프) */
+  --lms-ink:      #0e0e0d;
+  --lms-paper:    #f5f2ec;
+  --lms-mid:      #c8c4bb;
+  --lms-accent:   #c8a96e;
+  --lms-accent2:  #4a7c6f;
+  --lms-text:     #1a1916;
+  --lms-muted:    #6b6860;
+  --lms-card-bg:  #ffffff;
+  --lms-border:   rgba(0,0,0,0.09);
+  --lms-tag-bg:   #f0ece3;
+}
+
+.lms-body { display: flex; }
+
+.lnb {
+  width: 200px;
+  min-height: calc(100vh - 64px);
+  background: #f5f5f5;
+  padding: 2rem 0;
+  border-right: 1px solid #e0e0e0;
+  flex-shrink: 0;
+}
+.lnb-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: #aaa;
+  padding: 0 1.5rem 1rem;
+  text-transform: uppercase;
+}
+.lnb-item {
+  padding: 0.65rem 1.5rem;
+  font-size: 15px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  letter-spacing: 0.02em;
+}
+.lnb-item:hover { color: #111; background: rgba(0,0,0,0.05); }
+.lnb-item.active { color: #111; background: rgba(0,0,0,0.07); border-left: 2px solid #333; padding-left: calc(1.5rem - 2px); font-weight: 600; }
+.lnb-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.6; }
+
+.lms-main { flex: 1; overflow: hidden; }
+.lms-page { display: none; padding: 0 2.5rem 2.5rem; }
+.lms-page.active { display: block; }
+
+.lms-hero {
+  background: #0e0e0d;
+  color: #f5f2ec;
+  padding: 3rem 2.5rem;
+  margin: 0 -2.5rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.lms-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(200,169,110,0.06) 0%, transparent 60%);
+}
+.hero-eyebrow {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  color: #c8a96e;
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+.hero-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  line-height: 1.3;
+  margin-bottom: 1rem;
+}
+.hero-title em { color: #c8a96e; font-style: normal; }
+.hero-sub {
+  font-size: 16px;
+  color: rgba(245,242,236,0.55);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+}
+.hero-cta { display: flex; gap: 12px; }
+.lms-btn-primary {
+  background: #c8a96e;
+  color: #0e0e0d;
+  border: none;
+  padding: 10px 22px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: opacity 0.2s;
+}
+.lms-btn-primary:hover { opacity: 0.85; }
+.lms-btn-outline {
+  background: transparent;
+  color: #f5f2ec;
+  border: 1px solid rgba(245,242,236,0.25);
+  padding: 10px 22px;
+  font-size: 15px;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: border-color 0.2s;
+}
+.lms-btn-outline:hover { border-color: rgba(245,242,236,0.6); }
+
+.section-label {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  color: var(--lms-muted);
+  text-transform: uppercase;
+  margin-bottom: 1.2rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.section-label::after { content: ''; flex: 1; height: 1px; background: var(--lms-border); max-width: 60px; }
+.section-title {
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.vid-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-bottom: 3rem; }
+.vid-card {
+  background: var(--lms-card-bg);
+  border: 1px solid var(--lms-border);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.vid-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.08); }
+.vid-thumb {
+  aspect-ratio: 16/9;
+  background: #0e0e0d;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+.vid-play {
+  width: 44px; height: 44px;
+  border: 2px solid rgba(245,242,236,0.8);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  z-index: 1;
+  transition: background 0.2s;
+}
+.vid-card:hover .vid-play { background: rgba(200,169,110,0.3); }
+.vid-play svg { width: 18px; height: 18px; fill: #f5f2ec; margin-left: 3px; }
+.vid-views { position: absolute; bottom: 8px; right: 10px; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; color: rgba(245,242,236,0.6); z-index: 1; }
+.vid-info { padding: 12px 14px; }
+.vid-tag { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; color: var(--lms-accent2); letter-spacing: 0.1em; margin-bottom: 4px; }
+.vid-title { font-size: 16px; font-weight: 500; line-height: 1.4; color: var(--lms-text); }
+
+.course-list { display: flex; flex-direction: column; gap: 12px; margin-bottom: 3rem; }
+.course-card {
+  background: var(--lms-card-bg);
+  border: 1px solid var(--lms-border);
+  padding: 18px 20px;
+  cursor: pointer;
+  transition: box-shadow 0.2s;
+  display: flex; align-items: center; gap: 20px;
+}
+.course-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.course-badge {
+  display: inline-block;
+  background: var(--lms-tag-bg);
+  color: var(--lms-muted);
+  font-family: 'Pretendard', 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  padding: 3px 8px;
+  white-space: nowrap;
+}
+.course-name { font-size: 17px; font-weight: 600; line-height: 1.4; }
+.course-meta { font-size: 14px; color: var(--lms-muted); display: flex; gap: 12px; margin-top: 4px; }
+.course-arrow { color: var(--lms-muted); font-size: 18px; margin-left: auto; }
+
+.schedule-widget { background: var(--lms-card-bg); border: 1px solid var(--lms-border); padding: 20px; }
+.mini-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+.cal-day-label { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; color: var(--lms-muted); text-align: center; padding: 4px 0; }
+.cal-day { font-size: 14px; text-align: center; padding: 5px 4px; color: var(--lms-muted); }
+.cal-day.today { background: var(--lms-ink); color: #f5f2ec; font-weight: 500; }
+.cal-day.has-event { color: var(--lms-accent); font-weight: 500; position: relative; }
+.cal-day.has-event::after { content: ''; width: 3px; height: 3px; border-radius: 50%; background: var(--lms-accent); position: absolute; bottom: 1px; left: 50%; transform: translateX(-50%); }
+
+.preview-player {
+  background: #0e0e0d;
+  aspect-ratio: 16/9;
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 1.5rem;
+  position: relative;
+}
+.big-play {
+  width: 80px; height: 80px;
+  border: 2px solid rgba(245,242,236,0.5);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  margin: 0 auto 12px;
+  transition: all 0.2s;
+}
+.big-play:hover { border-color: #c8a96e; background: rgba(200,169,110,0.15); }
+.big-play svg { width: 32px; height: 32px; fill: #f5f2ec; margin-left: 6px; }
+.player-title-text { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 14px; color: rgba(245,242,236,0.4); letter-spacing: 0.1em; }
+.progress-bar-wrap { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: rgba(255,255,255,0.1); }
+.progress-bar-fill { height: 100%; background: #c8a96e; width: 0%; transition: width 0.1s; }
+
+.vid-gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-top: 2rem; }
+.vid-item { cursor: pointer; border: 1px solid var(--lms-border); transition: border-color 0.15s; }
+.vid-item:hover { border-color: var(--lms-accent); }
+.vid-item.playing { border-color: var(--lms-accent); border-width: 2px; }
+.vid-item-thumb { aspect-ratio: 16/9; background: #1a1916; display: flex; align-items: center; justify-content: center; }
+.vid-item-info { padding: 8px 10px; }
+.vid-item-title { font-size: 15px; font-weight: 500; }
+.vid-item-dur { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; color: var(--lms-muted); margin-top: 2px; }
+
+.cta-banner {
+  background: #0e0e0d;
+  color: #f5f2ec;
+  padding: 24px;
+  margin-top: 2rem;
+  display: flex; justify-content: space-between; align-items: center;
+}
+.cta-banner-left h3 { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 1.1rem; margin-bottom: 4px; }
+.cta-banner-left p { font-size: 15px; color: rgba(245,242,236,0.5); }
+
+.cal-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 1.5rem; }
+.cal-nav-btn {
+  background: none;
+  border: 1px solid var(--lms-border);
+  color: var(--lms-text);
+  width: 32px; height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: border-color 0.15s;
+  display: flex; align-items: center; justify-content: center;
+}
+.cal-nav-btn:hover { border-color: var(--lms-accent); color: var(--lms-accent); }
+.cal-month-label { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 16px; letter-spacing: 0.1em; }
+.view-toggle { display: flex; }
+.view-btn {
+  padding: 6px 14px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid var(--lms-border);
+  background: none;
+  color: var(--lms-muted);
+  transition: all 0.15s;
+  letter-spacing: 0.05em;
+}
+.view-btn.active { background: var(--lms-ink); color: #f5f2ec; border-color: var(--lms-ink); }
+
+.full-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--lms-border); border: 1px solid var(--lms-border); }
+.cal-head { background: #0e0e0d; color: rgba(245,242,236,0.4); font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; letter-spacing: 0.1em; text-align: center; padding: 10px 4px; }
+.cal-cell { background: var(--lms-card-bg); min-height: 90px; padding: 8px; }
+.cal-cell.empty { background: var(--lms-tag-bg); }
+.cal-cell.today-cell { background: rgba(200,169,110,0.05); }
+.cal-num { font-size: 14px; font-weight: 500; color: var(--lms-muted); margin-bottom: 4px; }
+.cal-cell.today-cell .cal-num { background: var(--lms-ink); color: #f5f2ec; width: 22px; height: 22px; display: flex; align-items: center; justify-content: center; border-radius: 50%; margin-bottom: 6px; }
+.cal-event { font-size: 12px; padding: 2px 6px; margin-bottom: 3px; cursor: pointer; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; transition: opacity 0.15s; }
+.cal-event:hover { opacity: 0.7; }
+.cal-event.ev-start { background: rgba(200,169,110,0.15); color: #966d2a; }
+.cal-event.ev-class { background: rgba(74,124,111,0.12); color: #2d6b5a; }
+
+.popup-overlay { display: none; position: fixed; inset: 0; background: rgba(14,14,13,0.7); z-index: 200; align-items: center; justify-content: center; }
+.popup-overlay.show { display: flex; }
+.popup { background: #fff; width: 420px; max-width: 90vw; padding: 28px; position: relative; }
+.popup-close { position: absolute; top: 16px; right: 16px; background: none; border: none; font-size: 18px; cursor: pointer; color: var(--lms-muted); }
+.popup-tag { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; letter-spacing: 0.12em; color: var(--lms-accent2); margin-bottom: 8px; }
+.popup-title { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 12px; }
+.popup-detail { font-size: 16px; color: var(--lms-muted); display: grid; grid-template-columns: auto 1fr; gap: 6px 12px; margin-bottom: 20px; }
+.popup-detail dt { font-weight: 500; color: var(--lms-text); }
+
+.enroll-intro { background: #0e0e0d; color: #f5f2ec; padding: 2rem 2.5rem; margin: 0 -2.5rem 2.5rem; }
+.enroll-intro-eyebrow { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; letter-spacing: 0.2em; color: #c8a96e; margin-bottom: 0.6rem; }
+.enroll-intro-title { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+.enroll-intro-sub { font-size: 15px; color: rgba(245,242,236,0.5); }
+
+.course-select-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 2rem; }
+.course-option { border: 1px solid var(--lms-border); padding: 16px 18px; cursor: pointer; transition: all 0.15s; background: var(--lms-card-bg); }
+.course-option:hover { border-color: var(--lms-accent); }
+.course-option.selected { border-color: var(--lms-accent); border-width: 2px; background: rgba(200,169,110,0.04); }
+.co-tag { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; letter-spacing: 0.1em; color: var(--lms-accent2); margin-bottom: 6px; }
+.co-name { font-size: 16px; font-weight: 600; margin-bottom: 6px; line-height: 1.4; }
+.co-meta { font-size: 14px; color: var(--lms-muted); display: flex; flex-direction: column; gap: 2px; }
+.co-check { width: 18px; height: 18px; border: 1.5px solid var(--lms-border); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin-top: 10px; transition: all 0.15s; }
+.course-option.selected .co-check { background: var(--lms-accent); border-color: var(--lms-accent); }
+.co-check-inner { width: 8px; height: 8px; border-radius: 50%; background: #0e0e0d; display: none; }
+.course-option.selected .co-check-inner { display: block; }
+
+.form-section-title { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; letter-spacing: 0.18em; color: var(--lms-muted); text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 8px; border-bottom: 1px solid var(--lms-border); }
+.form-group { margin-bottom: 18px; }
+.form-label { font-size: 16px; font-weight: 500; color: var(--lms-text); margin-bottom: 7px; display: block; }
+.form-label span { color: #c0392b; margin-left: 2px; }
+.form-input { width: 100%; border: 1px solid var(--lms-border); padding: 10px 14px; font-size: 16px; font-family: inherit; background: var(--lms-card-bg); color: var(--lms-text); transition: border-color 0.15s; outline: none; }
+.form-input:focus { border-color: var(--lms-accent); }
+.form-hint { font-size: 14px; color: var(--lms-muted); margin-top: 5px; }
+
+.submit-area { border-top: 1px solid var(--lms-border); padding-top: 1.5rem; margin-top: 0.5rem; display: flex; justify-content: flex-end; align-items: center; gap: 16px; }
+.agree-txt { font-size: 14px; color: var(--lms-muted); }
+.agree-txt a { color: var(--lms-accent); text-decoration: none; }
+.btn-submit { background: #0e0e0d; color: #f5f2ec; border: none; padding: 13px 36px; font-size: 16px; font-weight: 500; cursor: pointer; letter-spacing: 0.06em; transition: opacity 0.2s; }
+.btn-submit:hover { opacity: 0.75; }
+
+.enroll-result { text-align: center; padding: 4rem 2rem; }
+.result-icon { width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.2rem; background: rgba(74,124,111,0.12); }
+.result-icon svg { width: 32px; height: 32px; }
+.result-title { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; }
+.result-sub { font-size: 16px; color: var(--lms-muted); line-height: 1.7; margin-bottom: 2rem; }
+.result-course-box { background: var(--lms-tag-bg); border: 1px solid var(--lms-border); padding: 16px 20px; text-align: left; margin: 0 auto 2rem; max-width: 380px; }
+.result-course-box .rc-label { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 12px; color: var(--lms-muted); letter-spacing: 0.1em; margin-bottom: 6px; }
+.result-course-box .rc-name { font-size: 17px; font-weight: 600; }
+
+.two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
+
+.profile-bar { background: var(--lms-card-bg); border: 1px solid var(--lms-border); padding: 20px 24px; margin-bottom: 2rem; display: flex; align-items: center; gap: 20px; }
+.avatar { width: 48px; height: 48px; border-radius: 50%; background: #0e0e0d; display: flex; align-items: center; justify-content: center; color: #c8a96e; font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 14px; font-weight: 500; flex-shrink: 0; }
+.stat-pills { display: flex; gap: 2rem; margin-left: auto; }
+.stat-pill { text-align: center; }
+.stat-pill-num { font-family: 'Pretendard', 'Noto Sans KR', sans-serif; font-size: 1.2rem; font-weight: 500; color: var(--lms-accent); }
+.stat-pill-label { font-size: 13px; color: var(--lms-muted); }
+
+.progress-card { background: var(--lms-card-bg); border: 1px solid var(--lms-border); padding: 18px 20px; margin-bottom: 12px; display: flex; align-items: center; gap: 16px; }
+.prog-thumb { width: 64px; height: 48px; background: #0e0e0d; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+.prog-info { flex: 1; }
+.prog-name { font-size: 16px; font-weight: 500; margin-bottom: 4px; }
+.prog-bar-wrap { height: 4px; background: var(--lms-tag-bg); margin: 8px 0; }
+.prog-bar-fill { height: 100%; background: var(--lms-accent2); }
+.prog-meta { font-size: 13px; color: var(--lms-muted); font-family: 'Pretendard', 'Noto Sans KR', sans-serif; }
+.btn-sm { padding: 7px 14px; font-size: 14px; background: var(--lms-ink); color: #f5f2ec; border: none; cursor: pointer; letter-spacing: 0.05em; white-space: nowrap; transition: opacity 0.15s; }
+.btn-sm:hover { opacity: 0.7; }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--off);
+  border-top: 1px solid var(--border);
+  padding: 64px 44px 40px;
+}
+.foot-inner { max-width: var(--max); margin: 0 auto; }
+.foot-top {
+  display: grid;
+  grid-template-columns: 1.8fr 1fr 1fr;
+  gap: 60px;
+  margin-bottom: 52px;
+}
+.foot-logo {
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: var(--black);
+  margin-bottom: 11px;
+}
+.foot-tagline {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.7;
+  color: var(--mid);
+  letter-spacing: -0.01em;
+  max-width: 230px;
+}
+.foot-col-h {
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 16px;
+}
+.foot-list { list-style: none; }
+.foot-list li { margin-bottom: 9px; }
+.foot-list a {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dark);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+.foot-list a:hover { color: var(--black); }
+.foot-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 24px;
+  border-top: 1px solid var(--border);
+}
+.foot-copy { font-size: 12px; color: var(--mid); letter-spacing: -0.01em; }
+.foot-legal { display: flex; gap: 18px; }
+.foot-legal a {
+  font-size: 12px;
+  color: var(--mid);
+  text-decoration: none;
+  letter-spacing: -0.01em;
+  transition: color 0.18s;
+}
+.foot-legal a:hover { color: var(--dark); }
+
+/* ── LANGUAGE ── */
+body.ko .en { display: none; }
+body.en .ko { display: none; }
+
+/* ══════════════════════════════════════
+   RESPONSIVE — 모바일 (≤ 768px)
+══════════════════════════════════════ */
+@media (max-width: 768px) {
+  nav { padding: 0 20px; height: 56px; }
+  .nav-links { display: none; }
+  .nav-right { gap: 8px; }
+  .btn-contact { display: none; }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 6px;
+    background: none;
+    border: none;
+  }
+  .hamburger span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--black);
+    border-radius: 2px;
+    transition: all 0.25s ease;
+  }
+
+  .mobile-menu {
+    display: none;
+    position: fixed;
+    top: 56px;
+    left: 0; right: 0;
+    background: rgba(255,255,255,0.97);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+    z-index: 99;
+    padding: 20px;
+    flex-direction: column;
+    gap: 0;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.08);
+  }
+  .mobile-menu.open { display: flex; }
+  .mobile-menu a {
+    display: block;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    text-decoration: none;
+    padding: 13px 4px;
+    border-bottom: 1px solid var(--border);
+    letter-spacing: -0.01em;
+    transition: color 0.18s;
+  }
+  .mobile-menu a:last-child { border-bottom: none; }
+  .mobile-menu a:hover { color: var(--black); }
+  .mobile-menu .m-contact {
+    margin-top: 16px;
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--black);
+    color: var(--white);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    border-bottom: none;
+  }
+  .mobile-menu a.active-tab { color: var(--black); font-weight: 600; }
+
+  .lms-wrap { padding-top: 56px; }
+  .lnb { display: none; }
+  .vid-grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .course-select-grid { grid-template-columns: 1fr; }
+  .vid-gallery { grid-template-columns: 1fr 1fr; }
+  .stat-pills { gap: 1rem; }
+
+  footer { padding: 52px 20px 32px; }
+  .foot-top { grid-template-columns: 1fr; gap: 36px; }
+  .foot-bottom { flex-direction: column; gap: 12px; text-align: center; }
+  .foot-legal { justify-content: center; }
+}
+
+@media (max-width: 1024px) {
+  footer { padding: 52px 28px 32px; }
+  .foot-top { gap: 40px; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="logo" href="/">Anagram Communications, Inc</a>
+  <ul class="nav-links">
+    <li><a href="/#about" class="ko">회사 소개</a><a href="/#about" class="en">About</a></li>
+    <li><a href="/#expertise" class="ko">전문 분야</a><a href="/#expertise" class="en">Expertise</a></li>
+    <li><a href="/#solutions" class="ko">솔루션</a><a href="/#solutions" class="en">Solutions</a></li>
+    <li><a href="/#process" class="ko">진행 방식</a><a href="/#process" class="en">Process</a></li>
+    <li><a href="/#leadership" class="ko">리더십</a><a href="/#leadership" class="en">Leadership</a></li>
+    <li><a href="/education.html" class="ko active-tab">안전 교육</a><a href="/education.html" class="en active-tab">Education</a></li>
+  </ul>
+  <div class="nav-right">
+    <div class="lang-wrap">
+      <button class="lang-btn active" onclick="setLang('ko')">KO</button>
+      <button class="lang-btn" onclick="setLang('en')">EN</button>
+    </div>
+    <a href="/#contact" class="btn-contact ko">문의하기</a>
+    <a href="/#contact" class="btn-contact en">Contact</a>
+    <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- 모바일 메뉴 -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="/#about" class="ko" onclick="closeMobile()">회사 소개</a>
+  <a href="/#about" class="en" onclick="closeMobile()">About</a>
+  <a href="/#expertise" class="ko" onclick="closeMobile()">전문 분야</a>
+  <a href="/#expertise" class="en" onclick="closeMobile()">Expertise</a>
+  <a href="/#solutions" class="ko" onclick="closeMobile()">솔루션</a>
+  <a href="/#solutions" class="en" onclick="closeMobile()">Solutions</a>
+  <a href="/#process" class="ko" onclick="closeMobile()">진행 방식</a>
+  <a href="/#process" class="en" onclick="closeMobile()">Process</a>
+  <a href="/#leadership" class="ko" onclick="closeMobile()">리더십</a>
+  <a href="/#leadership" class="en" onclick="closeMobile()">Leadership</a>
+  <a href="/education.html" class="ko active-tab" onclick="closeMobile()">안전 교육</a>
+  <a href="/education.html" class="en active-tab" onclick="closeMobile()">Education</a>
+  <a href="/#contact" class="m-contact ko" onclick="closeMobile()">문의하기</a>
+  <a href="/#contact" class="m-contact en" onclick="closeMobile()">Contact Us</a>
+</div>
+
+<!-- LMS -->
+<div class="lms-wrap">
+  <div class="lms-body">
+
+    <!-- LNB -->
+    <div class="lnb">
+      <div class="lnb-title">안전 교육</div>
+      <div class="lnb-item active" onclick="showPage('home')"><span class="lnb-dot"></span>홈</div>
+      <div class="lnb-item" onclick="showPage('preview')"><span class="lnb-dot"></span>맛보기 샘플</div>
+      <div class="lnb-item" onclick="showPage('schedule')"><span class="lnb-dot"></span>교육 일정</div>
+      <div class="lnb-item" onclick="showPage('enroll')"><span class="lnb-dot"></span>수강 신청</div>
+      <!-- <div class="lnb-item" onclick="showPage('mylearning')"><span class="lnb-dot"></span>나의 학습</div> -->
+    </div>
+
+    <!-- MAIN -->
+    <div class="lms-main">
+
+      <!-- HOME -->
+      <div class="lms-page active" id="page-home">
+        <div class="lms-hero">
+          <div class="hero-eyebrow">Safety Education · LMS</div>
+          <div class="hero-title">안전 교육,<br>이제는 다르게<em></em></div>
+          <div class="hero-sub">시네마틱 스토리텔링과 AI 분석을 결합한 산업 안전 교육 — 근로자가 실제로 보고, 기억하고, 행동을 바꾸는 콘텐츠입니다.</div>
+          <div class="hero-cta">
+            <button class="lms-btn-primary" onclick="showPage('enroll')">수강 신청하기</button>
+            <button class="lms-btn-outline" onclick="showPage('preview')">맛보기 샘플 보기</button>
+          </div>
+        </div>
+
+        <div class="section-label">맛보기 샘플</div>
+        <div class="section-title">추천 무료 샘플</div>
+        <div class="vid-grid">
+          <div class="vid-card" onclick="goPreview(0)">
+            <div class="vid-thumb" style="background:#1a1612;">
+              <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <div class="vid-views">3.2k views</div>
+            </div>
+            <div class="vid-info">
+              <div class="vid-tag">MANUFACTURING</div>
+              <div class="vid-title">생산 라인 끼임 사고 예방</div>
+            </div>
+          </div>
+          <div class="vid-card" onclick="goPreview(1)">
+            <div class="vid-thumb" style="background:#101618;">
+              <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <div class="vid-views">2.7k views</div>
+            </div>
+            <div class="vid-info">
+              <div class="vid-tag">CONSTRUCTION</div>
+              <div class="vid-title">고소 작업 추락 방지 실무</div>
+            </div>
+          </div>
+          <div class="vid-card" onclick="goPreview(2)">
+            <div class="vid-thumb" style="background:#141210;">
+              <div class="vid-play"><svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></div>
+              <div class="vid-views">1.9k views</div>
+            </div>
+            <div class="vid-info">
+              <div class="vid-tag">HEAVY INDUSTRY</div>
+              <div class="vid-title">밀폐 공간 진입 전 체크리스트</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="two-col">
+          <div>
+            <div class="section-label">교육 과정</div>
+            <div class="section-title">현재 개설 과정</div>
+            <div class="course-list">
+              <div class="course-card" onclick="showPage('enroll')">
+                <div>
+                  <div class="course-badge">LEVEL 1</div>
+                  <div class="course-name" style="margin-top:6px;">산업 현장 안전 기초</div>
+                  <div class="course-meta"><span>8주</span><span>주 2회</span><span>제조 / 건설</span></div>
+                </div>
+                <div class="course-arrow">→</div>
+              </div>
+              <div class="course-card" onclick="showPage('enroll')">
+                <div>
+                  <div class="course-badge">LEVEL 2</div>
+                  <div class="course-name" style="margin-top:6px;">고위험 작업 안전 심화</div>
+                  <div class="course-meta"><span>6주</span><span>주 3회</span><span>플랜트 / 시공사</span></div>
+                </div>
+                <div class="course-arrow">→</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-label">교육 일정</div>
+            <div class="section-title">이달의 일정</div>
+            <div class="schedule-widget">
+              <div class="mini-calendar">
+                <div class="cal-day-label">일</div><div class="cal-day-label">월</div><div class="cal-day-label">화</div><div class="cal-day-label">수</div><div class="cal-day-label">목</div><div class="cal-day-label">금</div><div class="cal-day-label">토</div>
+                <div class="cal-day"></div><div class="cal-day"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
+                <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day has-event">8</div><div class="cal-day">9</div><div class="cal-day has-event">10</div><div class="cal-day">11</div><div class="cal-day">12</div>
+                <div class="cal-day">13</div><div class="cal-day today">14</div><div class="cal-day">15</div><div class="cal-day has-event">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
+                <div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day has-event">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day has-event">25</div><div class="cal-day">26</div>
+                <div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day"></div><div class="cal-day"></div><div class="cal-day"></div>
+              </div>
+              <div style="margin-top:12px;padding-top:12px;border-top:1px solid var(--lms-border);">
+                <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-muted);letter-spacing:0.08em;margin-bottom:6px;">다가오는 과정</div>
+                <div style="font-size:16px;color:var(--lms-text);padding:6px 0;border-bottom:1px solid var(--lms-border);">
+                  <span style="color:var(--lms-accent);font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;">4/16</span>&nbsp;&nbsp;산업 안전 기초 — 3기 개강
+                </div>
+                <div style="font-size:16px;color:var(--lms-text);padding:6px 0;">
+                  <span style="color:var(--lms-accent2);font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;">4/22</span>&nbsp;&nbsp;고위험 안전 심화 — 1기 개강
+                </div>
+              </div>
+              <button style="margin-top:14px;font-size:14px;padding:7px 14px;background:none;border:1px solid var(--lms-border);color:var(--lms-text);cursor:pointer;" onclick="showPage('schedule')">전체 일정 보기 →</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PREVIEW -->
+      <div class="lms-page" id="page-preview">
+        <div class="section-label">맛보기 샘플</div>
+        <div class="preview-player">
+          <div style="text-align:center;">
+            <div class="big-play" id="bigPlay" onclick="startPlay()">
+              <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            </div>
+            <div class="player-title-text" id="playerLabel">영상을 선택하거나 재생을 눌러주세요</div>
+          </div>
+          <div class="progress-bar-wrap"><div class="progress-bar-fill" id="progFill"></div></div>
+        </div>
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:2rem;margin-bottom:1rem;">
+          <div>
+            <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-accent2);letter-spacing:0.1em;margin-bottom:4px;" id="nowTag">MANUFACTURING</div>
+            <div style="font-size:1.3rem;font-weight:600;margin-bottom:6px;" id="nowTitle">생산 라인 끼임 사고 예방</div>
+            <div style="font-size:16px;color:var(--lms-muted);" id="nowDesc">생산 설비 주변에서 발생할 수 있는 끼임 사고의 원인과 예방 수칙을 실제 사례 기반 시네마틱 영상으로 전달합니다.</div>
+          </div>
+          <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:13px;color:var(--lms-muted);white-space:nowrap;" id="nowViews">조회 3,218회</div>
+        </div>
+
+        <div id="ctaBanner" class="cta-banner" style="display:none;">
+          <div class="cta-banner-left">
+            <h3>이 영상이 포함된 정규 과정</h3>
+            <p>산업 현장 안전 기초 — 8주 과정</p>
+          </div>
+          <button class="lms-btn-primary" onclick="showPage('enroll')">수강 신청하기 →</button>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">영상 목록</div>
+        <div class="vid-gallery" id="vidGallery">
+          <div class="vid-item playing" onclick="selectVid(0)">
+            <div class="vid-item-thumb" style="background:#1a1612;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(200,169,110,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">생산 라인 끼임 사고 예방</div><div class="vid-item-dur">05:12</div></div>
+          </div>
+          <div class="vid-item" onclick="selectVid(1)">
+            <div class="vid-item-thumb" style="background:#101618;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(74,124,111,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">고소 작업 추락 방지 실무</div><div class="vid-item-dur">06:48</div></div>
+          </div>
+          <div class="vid-item" onclick="selectVid(2)">
+            <div class="vid-item-thumb" style="background:#141210;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(150,109,42,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">밀폐 공간 진입 전 체크리스트</div><div class="vid-item-dur">04:30</div></div>
+          </div>
+          <div class="vid-item" onclick="selectVid(3)">
+            <div class="vid-item-thumb" style="background:#0e1410;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(60,130,80,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">화재 대피 경로 실습 시나리오</div><div class="vid-item-dur">07:05</div></div>
+          </div>
+          <div class="vid-item" onclick="selectVid(4)">
+            <div class="vid-item-thumb" style="background:#161210;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(180,90,40,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">위험물 취급 안전 수칙</div><div class="vid-item-dur">05:55</div></div>
+          </div>
+          <div class="vid-item" onclick="selectVid(5)">
+            <div class="vid-item-thumb" style="background:#101416;"><svg width="20" height="20" viewBox="0 0 24 24" fill="rgba(50,100,160,0.6)"><path d="M8 5v14l11-7z"/></svg></div>
+            <div class="vid-item-info"><div class="vid-item-title">전기 작업 안전 기초</div><div class="vid-item-dur">04:22</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SCHEDULE -->
+      <div class="lms-page" id="page-schedule">
+        <div class="cal-header">
+          <div style="display:flex;align-items:center;gap:12px;">
+            <button class="cal-nav-btn" onclick="changeMonth(-1)">‹</button>
+            <div class="cal-month-label" id="monthLabel">2026 / 04</div>
+            <button class="cal-nav-btn" onclick="changeMonth(1)">›</button>
+          </div>
+          <div class="view-toggle">
+            <button class="view-btn active" id="calViewBtn" onclick="setView('cal')">캘린더</button>
+            <button class="view-btn" id="listViewBtn" onclick="setView('list')">목록</button>
+          </div>
+        </div>
+
+        <div id="calView">
+          <div class="full-calendar">
+            <div class="cal-head">SUN</div><div class="cal-head">MON</div><div class="cal-head">TUE</div><div class="cal-head">WED</div><div class="cal-head">THU</div><div class="cal-head">FRI</div><div class="cal-head">SAT</div>
+            <div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell"><div class="cal-num">1</div></div><div class="cal-cell"><div class="cal-num">2</div></div><div class="cal-cell"><div class="cal-num">3</div></div><div class="cal-cell"><div class="cal-num">4</div></div><div class="cal-cell"><div class="cal-num">5</div></div>
+            <div class="cal-cell"><div class="cal-num">6</div></div><div class="cal-cell"><div class="cal-num">7</div></div><div class="cal-cell"><div class="cal-num">8</div><div class="cal-event ev-start" onclick="showPopup('안전기초2기')">안전 기초 2기</div></div><div class="cal-cell"><div class="cal-num">9</div></div><div class="cal-cell"><div class="cal-num">10</div><div class="cal-event ev-class" onclick="showPopup('고위험심화1기')">고위험 심화 1기</div></div><div class="cal-cell"><div class="cal-num">11</div></div><div class="cal-cell"><div class="cal-num">12</div></div>
+            <div class="cal-cell"><div class="cal-num">13</div></div><div class="cal-cell today-cell"><div class="cal-num">14</div><div class="cal-event ev-start" onclick="showPopup('안전기초2기')">안전 기초 2기</div></div><div class="cal-cell"><div class="cal-num">15</div></div><div class="cal-cell"><div class="cal-num">16</div><div class="cal-event ev-start" onclick="showPopup('안전기초3기')">안전 기초 3기</div></div><div class="cal-cell"><div class="cal-num">17</div></div><div class="cal-cell"><div class="cal-num">18</div></div><div class="cal-cell"><div class="cal-num">19</div></div>
+            <div class="cal-cell"><div class="cal-num">20</div></div><div class="cal-cell"><div class="cal-num">21</div></div><div class="cal-cell"><div class="cal-num">22</div><div class="cal-event ev-class" onclick="showPopup('고위험심화1기')">고위험 심화 1기</div></div><div class="cal-cell"><div class="cal-num">23</div></div><div class="cal-cell"><div class="cal-num">24</div></div><div class="cal-cell"><div class="cal-num">25</div><div class="cal-event ev-start" onclick="showPopup('화재대피실습')">화재 대피 실습</div></div><div class="cal-cell"><div class="cal-num">26</div></div>
+            <div class="cal-cell"><div class="cal-num">27</div></div><div class="cal-cell"><div class="cal-num">28</div></div><div class="cal-cell"><div class="cal-num">29</div></div><div class="cal-cell"><div class="cal-num">30</div></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div><div class="cal-cell empty"></div>
+          </div>
+        </div>
+
+        <div id="listView" style="display:none;">
+          <div style="display:flex;flex-direction:column;gap:1px;background:var(--lms-border);border:1px solid var(--lms-border);">
+            <div style="background:var(--lms-card-bg);padding:14px 18px;display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;font-size:16px;">
+              <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-accent);">4/8 → 5/31</div>
+              <div><div style="font-weight:500;margin-bottom:2px;">산업 현장 안전 기초 — 2기</div><div style="font-size:13px;color:var(--lms-muted);">주 2회 (화·목) · 8주</div></div>
+              <button class="btn-sm" onclick="showPage('enroll')">신청</button>
+            </div>
+            <div style="background:var(--lms-card-bg);padding:14px 18px;display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;font-size:16px;">
+              <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-accent2);">4/10 → 5/15</div>
+              <div><div style="font-weight:500;margin-bottom:2px;">고위험 작업 안전 심화 — 1기</div><div style="font-size:13px;color:var(--lms-muted);">주 3회 (월·수·금) · 6주</div></div>
+              <button class="btn-sm" onclick="showPage('enroll')">신청</button>
+            </div>
+            <div style="background:var(--lms-card-bg);padding:14px 18px;display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;font-size:16px;">
+              <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-accent);">4/16 → 6/4</div>
+              <div><div style="font-weight:500;margin-bottom:2px;">산업 현장 안전 기초 — 3기</div><div style="font-size:13px;color:var(--lms-muted);">주 2회 (화·목) · 8주</div></div>
+              <button class="btn-sm" onclick="showPage('enroll')">신청</button>
+            </div>
+            <div style="background:var(--lms-card-bg);padding:14px 18px;display:grid;grid-template-columns:110px 1fr auto;gap:16px;align-items:center;font-size:16px;">
+              <div style="font-family:'Pretendard','Noto Sans KR',sans-serif;font-size:12px;color:var(--lms-muted);">4/25 → 5/9</div>
+              <div><div style="font-weight:500;margin-bottom:2px;">화재 대피 실습 집중 과정</div><div style="font-size:13px;color:var(--lms-muted);">주 2회 (화·토) · 2주</div></div>
+              <button class="btn-sm" onclick="showPage('enroll')">신청</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENROLL -->
+      <div class="lms-page" id="page-enroll">
+        <div id="enrollForm">
+          <div class="enroll-intro">
+            <div class="enroll-intro-eyebrow">Course Enrollment</div>
+            <div class="enroll-intro-title">수강 신청</div>
+            <div class="enroll-intro-sub">원하시는 과정을 선택하고 정보를 입력해 주세요. 담당자가 확인 후 연락드립니다.</div>
+          </div>
+
+          <div class="section-label" style="margin-bottom:1rem;">과정 선택</div>
+          <div class="course-select-grid">
+            <div class="course-option selected" id="opt0" onclick="selectCourse(0)">
+              <div class="co-tag">LEVEL 1 · 제조 / 건설</div>
+              <div class="co-name">산업 현장 안전 기초</div>
+              <div class="co-meta"><span>8주 · 주 2회 (화·목)</span><span>2026.04.16 개강 (3기)</span></div>
+              <div class="co-check"><div class="co-check-inner"></div></div>
+            </div>
+            <div class="course-option" id="opt1" onclick="selectCourse(1)">
+              <div class="co-tag">LEVEL 2 · 플랜트 / 시공사</div>
+              <div class="co-name">고위험 작업 안전 심화</div>
+              <div class="co-meta"><span>6주 · 주 3회 (월·수·금)</span><span>2026.04.22 개강 (1기)</span></div>
+              <div class="co-check"><div class="co-check-inner"></div></div>
+            </div>
+            <div class="course-option" id="opt2" onclick="selectCourse(2)">
+              <div class="co-tag">INTENSIVE · 전 산업군</div>
+              <div class="co-name">화재 대피 실습 집중 과정</div>
+              <div class="co-meta"><span>2주 · 주 2회 (화·토)</span><span>2026.04.25 개강</span></div>
+              <div class="co-check"><div class="co-check-inner"></div></div>
+            </div>
+            <div class="course-option" id="opt3" onclick="selectCourse(3)">
+              <div class="co-tag">CORPORATE · 기업 맞춤</div>
+              <div class="co-name">기업 맞춤형 안전 교육</div>
+              <div class="co-meta"><span>일정 협의</span><span>별도 문의</span></div>
+              <div class="co-check"><div class="co-check-inner"></div></div>
+            </div>
+          </div>
+
+          <div class="form-section-title">신청자 정보</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+            <div class="form-group">
+              <label class="form-label">이름 <span>*</span></label>
+              <input type="text" class="form-input" id="inputName" placeholder="홍길동">
+            </div>
+            <div class="form-group">
+              <label class="form-label">소속 회사</label>
+              <input type="text" class="form-input" id="inputCompany" placeholder="(주)Anagram">
+            </div>
+            <div class="form-group">
+              <label class="form-label">이메일 <span>*</span></label>
+              <input type="email" class="form-input" id="inputEmail" placeholder="email@company.com">
+            </div>
+            <div class="form-group">
+              <label class="form-label">연락처 <span>*</span></label>
+              <input type="text" class="form-input" id="inputPhone" placeholder="010-0000-0000">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">문의사항</label>
+            <textarea class="form-input" id="inputMsg" rows="3" placeholder="궁금한 점이나 특이 사항을 자유롭게 적어주세요." style="resize:vertical;"></textarea>
+            <div class="form-hint">담당자가 2영업일 이내에 연락드립니다.</div>
+          </div>
+
+          <div class="submit-area">
+            <div class="agree-txt">신청 시 <a href="#">개인정보 처리방침</a>에 동의하는 것으로 간주됩니다.</div>
+            <button class="btn-submit" onclick="submitEnroll()">신청하기</button>
+          </div>
+        </div>
+
+        <div id="enrollResult" style="display:none;">
+          <div class="enroll-result">
+            <div class="result-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="#4a7c6f" stroke-width="2.5"><path d="M20 6L9 17l-5-5"/></svg>
+            </div>
+            <div class="result-title">신청이 완료되었습니다</div>
+            <div class="result-sub">입력하신 이메일로 신청 확인 메일이 발송됩니다.<br>담당자가 2영업일 이내에 연락드리겠습니다.</div>
+            <div class="result-course-box">
+              <div class="rc-label">신청 과정</div>
+              <div class="rc-name" id="resultCourseName">산업 현장 안전 기초</div>
+            </div>
+            <div style="display:flex;gap:12px;justify-content:center;">
+              <button class="btn-submit" onclick="showPage('home')">홈으로 이동</button>
+              <button style="padding:13px 36px;font-size:16px;background:none;border:1px solid var(--lms-border);color:var(--lms-text);cursor:pointer;" onclick="showPage('preview')">맛보기 샘플 보기</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MY LEARNING (비활성화 — 복구하려면 이 주석을 해제하세요)
+      <div class="lms-page" id="page-mylearning">
+        <div class="profile-bar">
+          <div class="avatar">KJ</div>
+          <div>
+            <div style="font-size:16px;font-weight:500;">김지현님</div>
+            <div style="font-size:14px;color:var(--lms-muted);">수강생 · 2026.03.01 등록</div>
+          </div>
+          <div class="stat-pills">
+            <div class="stat-pill"><div class="stat-pill-num">2</div><div class="stat-pill-label">수강 중</div></div>
+            <div class="stat-pill"><div class="stat-pill-num">1</div><div class="stat-pill-label">완료</div></div>
+            <div class="stat-pill"><div class="stat-pill-num">18h</div><div class="stat-pill-label">총 학습</div></div>
+          </div>
+        </div>
+
+        <div class="section-label">수강 중인 과정</div>
+        <div class="progress-card">
+          <div class="prog-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(200,169,110,0.5)"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="prog-info">
+            <div class="prog-name">산업 현장 안전 기초 — 2기</div>
+            <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:50%"></div></div>
+            <div class="prog-meta">50% 완료 · 4/8주 · 마지막 수강 2일 전</div>
+          </div>
+          <button class="btn-sm">이어서 학습</button>
+        </div>
+        <div class="progress-card">
+          <div class="prog-thumb"><svg width="22" height="22" viewBox="0 0 24 24" fill="rgba(74,124,111,0.5)"><path d="M8 5v14l11-7z"/></svg></div>
+          <div class="prog-info">
+            <div class="prog-name">화재 대피 실습 집중 과정</div>
+            <div class="prog-bar-wrap"><div class="prog-bar-fill" style="width:25%"></div></div>
+            <div class="prog-meta">25% 완료 · 1/4주 · 마지막 수강 5일 전</div>
+          </div>
+          <button class="btn-sm">이어서 학습</button>
+        </div>
+
+        <div class="section-label" style="margin-top:2rem;">수강 완료 과정</div>
+        <div style="background:var(--lms-card-bg);border:1px solid var(--lms-border);padding:14px 20px;display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <div style="font-size:16px;font-weight:500;">고소 작업 안전 기초 — 0기 (종료)</div>
+            <div style="font-size:14px;color:var(--lms-muted);margin-top:3px;">2026.02.03 ~ 03.14 · 출석률 100%</div>
+          </div>
+          <div style="display:flex;gap:8px;">
+            <button class="btn-sm" style="background:transparent;border:1px solid var(--lms-border);color:var(--lms-text);">후기 작성</button>
+            <button class="btn-sm">수강증 발급</button>
+          </div>
+        </div>
+      </div>
+      END MY LEARNING -->
+
+    </div><!-- /lms-main -->
+  </div><!-- /lms-body -->
+</div><!-- /lms-wrap -->
+
+<!-- Popup -->
+<div class="popup-overlay" id="popupOverlay" onclick="closePopup(event)">
+  <div class="popup" id="popupBox">
+    <button class="popup-close" onclick="closePopupDirect()">✕</button>
+    <div class="popup-tag" id="popupTag"></div>
+    <div class="popup-title" id="popupTitle"></div>
+    <dl class="popup-detail" id="popupDetail"></dl>
+    <button class="lms-btn-primary" style="width:100%;padding:12px;" onclick="showPage('enroll');closePopupDirect()">수강 신청하기 →</button>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="foot-inner">
+    <div class="foot-top">
+      <div>
+        <p class="foot-logo">Anagram Communications, Inc.</p>
+        <p class="foot-tagline ko">영화와 AI로 안전 교육을 재정의합니다.<br>Seoul, Republic of Korea · Est. 2026</p>
+        <p class="foot-tagline en">Redefining Safety Education<br>through Cinema and AI.<br>Seoul, Republic of Korea · Est. 2026</p>
+      </div>
+      <div>
+        <p class="foot-col-h ko">페이지</p>
+        <p class="foot-col-h en">Pages</p>
+        <ul class="foot-list">
+          <li><a href="/#about"><span class="ko">회사 소개</span><span class="en">About</span></a></li>
+          <li><a href="/#expertise"><span class="ko">전문 분야</span><span class="en">Expertise</span></a></li>
+          <li><a href="/#solutions"><span class="ko">솔루션</span><span class="en">Solutions</span></a></li>
+          <li><a href="/#process"><span class="ko">진행 방식</span><span class="en">Process</span></a></li>
+          <li><a href="/#leadership"><span class="ko">리더십</span><span class="en">Leadership</span></a></li>
+          <li><a href="/education.html"><span class="ko">안전 교육</span><span class="en">Education</span></a></li>
+          <li><a href="/#contact"><span class="ko">문의하기</span><span class="en">Contact</span></a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="foot-col-h ko">연락처</p>
+        <p class="foot-col-h en">Contact</p>
+        <ul class="foot-list">
+          <li><a href="/#contact" class="ko">문의 양식 보내기</a><a href="/#contact" class="en">Send an inquiry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <p class="foot-copy">© 2026 Anagram Communications, Inc. All rights reserved.</p>
+      <div class="foot-legal">
+        <a href="#"><span class="ko">개인정보처리방침</span><span class="en">Privacy Policy</span></a>
+        <a href="#"><span class="ko">이용약관</span><span class="en">Terms</span></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── 언어 / 햄버거 ── */
+function setLang(lang) {
+  document.body.className = lang;
+  document.querySelectorAll('.lang-btn').forEach((btn, i) => {
+    btn.classList.toggle('active', (i === 0 && lang === 'ko') || (i === 1 && lang === 'en'));
+  });
+}
+setLang('ko');
+
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', () => {
+  mobileMenu.classList.toggle('open');
+  const spans = hamburger.querySelectorAll('span');
+  if (mobileMenu.classList.contains('open')) {
+    spans[0].style.transform = 'translateY(7px) rotate(45deg)';
+    spans[1].style.opacity = '0';
+    spans[2].style.transform = 'translateY(-7px) rotate(-45deg)';
+  } else {
+    spans[0].style.transform = '';
+    spans[1].style.opacity = '';
+    spans[2].style.transform = '';
+  }
+});
+function closeMobile() {
+  mobileMenu.classList.remove('open');
+  const spans = hamburger.querySelectorAll('span');
+  spans[0].style.transform = '';
+  spans[1].style.opacity = '';
+  spans[2].style.transform = '';
+}
+
+/* ── LMS ── */
+const vidData = [
+  {tag:'MANUFACTURING', title:'생산 라인 끼임 사고 예방',       desc:'생산 설비 주변에서 발생할 수 있는 끼임 사고의 원인과 예방 수칙을 실제 사례 기반 시네마틱 영상으로 전달합니다.',           views:'조회 3,218회'},
+  {tag:'CONSTRUCTION',  title:'고소 작업 추락 방지 실무',        desc:'고소 작업 시 안전대 착용법, 안전 발판 설치 기준, 추락 방지 체크리스트를 현장 재연 영상으로 설명합니다.',            views:'조회 2,740회'},
+  {tag:'HEAVY INDUSTRY',title:'밀폐 공간 진입 전 체크리스트',    desc:'밀폐 공간 작업의 위험성과 진입 전 산소 농도 측정, 환기 절차, 감시인 배치 요령을 다룹니다.',                     views:'조회 1,965회'},
+  {tag:'FIRE SAFETY',   title:'화재 대피 경로 실습 시나리오',    desc:'실제 화재 상황을 가정한 대피 시나리오를 시네마틱 연출로 재현해 기억에 남는 화재 대응 행동을 교육합니다.',             views:'조회 2,100회'},
+  {tag:'HAZMAT',        title:'위험물 취급 안전 수칙',           desc:'화학물질 및 위험물 취급 시 보호구 착용, 보관 기준, 누출 대응 절차를 사례 영상으로 안내합니다.',                  views:'조회 1,430회'},
+  {tag:'ELECTRICAL',    title:'전기 작업 안전 기초',             desc:'전기 작업 전 차단 확인, 접지, 절연 장갑 착용 등 기본 안전 수칙과 감전 사고 예방법을 소개합니다.',               views:'조회 1,580회'},
+];
+
+const courseNames = ['산업 현장 안전 기초', '고위험 작업 안전 심화', '화재 대피 실습 집중 과정', '기업 맞춤형 안전 교육'];
+
+const popupData = {
+  '안전기초2기':  {tag:'LEVEL 1 · 모집중',     title:'산업 현장 안전 기초 — 2기',    details:['기간','2026.04.08 ~ 05.31','일정','주 2회 (화·목)','대상','제조 / 건설 종사자','잔여석','5석']},
+  '고위험심화1기':{tag:'LEVEL 2 · 모집중',     title:'고위험 작업 안전 심화 — 1기',  details:['기간','2026.04.10 ~ 05.15','일정','주 3회 (월·수·금)','대상','플랜트 / 시공사 종사자','잔여석','3석']},
+  '안전기초3기':  {tag:'LEVEL 1 · 신청예정',   title:'산업 현장 안전 기초 — 3기',    details:['기간','2026.04.16 ~ 06.04','일정','주 2회 (화·목)','대상','제조 / 건설 종사자','잔여석','12석']},
+  '화재대피실습': {tag:'INTENSIVE · 신청예정', title:'화재 대피 실습 집중 과정',       details:['기간','2026.04.25 ~ 05.09','일정','주 2회 (화·토)','대상','전 산업군','잔여석','18석']},
+};
+
+let playTimer = null;
+let selectedCourse = 0;
+
+function showPage(name) {
+  document.querySelectorAll('.lms-page').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.lnb-item').forEach(i => i.classList.remove('active'));
+  document.getElementById('page-' + name).classList.add('active');
+  const map = {home:0, preview:1, schedule:2, enroll:3};
+  document.querySelectorAll('.lnb-item')[map[name]].classList.add('active');
+  clearInterval(playTimer);
+}
+
+function goPreview(idx) { showPage('preview'); selectVid(idx); }
+
+function selectVid(idx) {
+  clearInterval(playTimer);
+  document.getElementById('progFill').style.width = '0%';
+  document.getElementById('ctaBanner').style.display = 'none';
+  const d = vidData[idx];
+  document.getElementById('nowTag').textContent   = d.tag;
+  document.getElementById('nowTitle').textContent = d.title;
+  document.getElementById('nowDesc').textContent  = d.desc;
+  document.getElementById('nowViews').textContent = d.views;
+  document.getElementById('playerLabel').textContent = d.title;
+  document.querySelectorAll('.vid-item').forEach((el, i) => el.classList.toggle('playing', i === idx));
+  startPlay();
+}
+
+function startPlay() {
+  clearInterval(playTimer);
+  document.getElementById('playerLabel').textContent = '재생 중...';
+  let pct = 0;
+  playTimer = setInterval(() => {
+    pct += 2;
+    document.getElementById('progFill').style.width = pct + '%';
+    if (pct >= 100) {
+      clearInterval(playTimer);
+      document.getElementById('playerLabel').textContent = '시청 완료';
+      document.getElementById('ctaBanner').style.display = 'flex';
+    }
+  }, 120);
+}
+
+function selectCourse(idx) {
+  selectedCourse = idx;
+  document.querySelectorAll('.course-option').forEach((el, i) => el.classList.toggle('selected', i === idx));
+}
+
+function submitEnroll() {
+  const name  = document.getElementById('inputName').value.trim();
+  const email = document.getElementById('inputEmail').value.trim();
+  const phone = document.getElementById('inputPhone').value.trim();
+  if (!name || !email || !phone) {
+    alert('이름, 이메일, 연락처는 필수 입력 항목입니다.');
+    return;
+  }
+  document.getElementById('resultCourseName').textContent = courseNames[selectedCourse];
+  document.getElementById('enrollForm').style.display   = 'none';
+  document.getElementById('enrollResult').style.display = 'block';
+}
+
+function showPopup(key) {
+  const d = popupData[key];
+  document.getElementById('popupTag').textContent   = d.tag;
+  document.getElementById('popupTitle').textContent = d.title;
+  let html = '';
+  for (let i = 0; i < d.details.length; i += 2) html += `<dt>${d.details[i]}</dt><dd>${d.details[i+1]}</dd>`;
+  document.getElementById('popupDetail').innerHTML = html;
+  document.getElementById('popupOverlay').classList.add('show');
+}
+function closePopup(e) { if (e.target === document.getElementById('popupOverlay')) closePopupDirect(); }
+function closePopupDirect() { document.getElementById('popupOverlay').classList.remove('show'); }
+
+function changeMonth(dir) {
+  const m = document.getElementById('monthLabel');
+  const [y, mo] = m.textContent.split(' / ').map(Number);
+  let nm = mo + dir, ny = y;
+  if (nm > 12) { nm = 1; ny++; }
+  if (nm < 1)  { nm = 12; ny--; }
+  m.textContent = ny + ' / ' + String(nm).padStart(2, '0');
+}
+function setView(v) {
+  document.getElementById('calView').style.display    = v === 'cal'  ? 'block' : 'none';
+  document.getElementById('listView').style.display   = v === 'list' ? 'block' : 'none';
+  document.getElementById('calViewBtn').classList.toggle('active',  v === 'cal');
+  document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
+}
+</script>
+
+</body>
+</html>
