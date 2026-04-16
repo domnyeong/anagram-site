@@ -54,7 +54,7 @@ nav {
 }
 
 .logo {
-  font-size: 14px;
+  font-size: 15px;
   font-weight: 700;
   letter-spacing: -0.02em;
   color: var(--black);
@@ -67,7 +67,7 @@ nav {
   list-style: none;
 }
 .nav-links a {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 400;
   color: var(--mid);
   text-decoration: none;
@@ -129,6 +129,195 @@ nav {
   opacity: 0.82;
   transform: translateY(-1px);
   box-shadow: 0 5px 16px rgba(0,0,0,0.2);
+}
+
+/* ── SUBSCRIBE BUTTON ── */
+.btn-subscribe {
+  padding: 8px 16px;
+  background: transparent;
+  color: var(--dark);
+  font-size: 14px;
+  font-weight: 600;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  letter-spacing: -0.01em;
+  border: 1.5px solid var(--border);
+  border-radius: 6px;
+  cursor: pointer;
+  transition: border-color 0.18s, color 0.18s, background 0.18s;
+  white-space: nowrap;
+}
+.btn-subscribe:hover {
+  border-color: var(--dark);
+  color: var(--black);
+  background: var(--off);
+}
+
+/* ── SUBSCRIBE MODAL ── */
+.sub-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(17,17,16,0.48);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  z-index: 300;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.sub-overlay.open { display: flex; }
+
+.sub-modal {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 40px 44px 44px;
+  width: 100%;
+  max-width: 560px;
+  position: relative;
+  box-shadow: 0 32px 80px rgba(0,0,0,0.22), 0 4px 16px rgba(0,0,0,0.08);
+  animation: modal-in 0.22s ease forwards;
+}
+
+@keyframes modal-in {
+  from { opacity: 0; transform: translateY(14px) scale(0.975); }
+  to   { opacity: 1; transform: none; }
+}
+
+.sub-close {
+  position: absolute;
+  top: 14px; right: 14px;
+  width: 30px; height: 30px;
+  background: var(--off);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--mid);
+  font-size: 16px;
+  line-height: 1;
+  transition: background 0.18s, color 0.18s;
+}
+.sub-close:hover { background: var(--border); color: var(--black); }
+
+.sub-modal-title {
+  font-size: clamp(20px, 2.4vw, 26px);
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+  color: var(--black);
+  margin-bottom: 8px;
+}
+
+.sub-modal-desc {
+  font-size: 13px;
+  font-weight: 300;
+  line-height: 1.72;
+  color: var(--mid);
+  letter-spacing: -0.01em;
+  margin-bottom: 28px;
+}
+
+/* form elements reused from index */
+.fg { margin-bottom: 12px; }
+.frow { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.flabel {
+  display: block;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  color: var(--mid);
+  margin-bottom: 7px;
+}
+.finput {
+  width: 100%;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--black);
+  font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  padding: 11px 14px;
+  outline: none;
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04);
+  transition: border-color 0.18s, box-shadow 0.18s;
+  -webkit-appearance: none;
+  appearance: none;
+  letter-spacing: -0.01em;
+}
+.finput:focus {
+  border-color: rgba(58,58,56,0.5);
+  box-shadow: inset 0 1px 3px rgba(0,0,0,0.04), 0 0 0 3px rgba(58,58,56,0.07);
+}
+.finput::placeholder { color: var(--mid); }
+.fsubmit {
+  width: 100%;
+  margin-top: 4px;
+  padding: 14px;
+  background: var(--black);
+  color: var(--white);
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.16);
+  transition: opacity 0.18s, transform 0.18s;
+}
+.fsubmit:hover { opacity: 0.82; transform: translateY(-1px); }
+
+.fcheck-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 2px;
+}
+.fcheck-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+  user-select: none;
+}
+.fcheck-item input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  border: 1.5px solid var(--border);
+  border-radius: 4px;
+  background: rgba(255,255,255,0.75);
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.18s, background 0.18s;
+  position: relative;
+}
+.fcheck-item input[type="checkbox"]:checked {
+  background: var(--black);
+  border-color: var(--black);
+}
+.fcheck-item input[type="checkbox"]:checked::after {
+  content: '';
+  position: absolute;
+  top: 2px;
+  left: 5px;
+  width: 4px;
+  height: 7px;
+  border: 1.5px solid white;
+  border-top: none;
+  border-left: none;
+  transform: rotate(45deg);
+}
+.fcheck-label {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--dark);
+  letter-spacing: -0.01em;
 }
 
 /* ── LMS ── */
@@ -555,6 +744,25 @@ body.en .ko { display: none; }
   .nav-links { display: none; }
   .nav-right { gap: 8px; }
   .btn-contact { display: none; }
+  .btn-subscribe { display: none; }
+
+  .mobile-menu .m-subscribe {
+    margin-top: 8px;
+    display: block;
+    padding: 12px 20px;
+    background: transparent;
+    color: var(--dark);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    text-align: center;
+    cursor: pointer;
+    font-family: 'Plus Jakarta Sans', 'Noto Sans KR', sans-serif;
+    letter-spacing: -0.01em;
+    transition: border-color 0.18s, color 0.18s;
+  }
+  .mobile-menu .m-subscribe:hover { border-color: var(--dark); color: var(--black); }
 
   .hamburger {
     display: flex;
@@ -656,6 +864,8 @@ body.en .ko { display: none; }
       <button class="lang-btn active" onclick="setLang('ko')">KO</button>
       <button class="lang-btn" onclick="setLang('en')">EN</button>
     </div>
+    <button class="btn-subscribe ko" onclick="openSubscribeModal()">지원사업 알림</button>
+    <button class="btn-subscribe en" onclick="openSubscribeModal()">Gov. Alerts</button>
     <a href="/#contact" class="btn-contact ko">문의하기</a>
     <a href="/#contact" class="btn-contact en">Contact</a>
     <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
@@ -678,6 +888,8 @@ body.en .ko { display: none; }
   <a href="/#leadership" class="en" onclick="closeMobile()">Leadership</a>
   <a href="/education.html" class="ko active-tab" onclick="closeMobile()">안전 교육</a>
   <a href="/education.html" class="en active-tab" onclick="closeMobile()">Education</a>
+  <button class="m-subscribe ko" onclick="closeMobile(); openSubscribeModal();">지원사업 알림 신청</button>
+  <button class="m-subscribe en" onclick="closeMobile(); openSubscribeModal();">Gov. Support Alerts</button>
   <a href="/#contact" class="m-contact ko" onclick="closeMobile()">문의하기</a>
   <a href="/#contact" class="m-contact en" onclick="closeMobile()">Contact Us</a>
 </div>
@@ -1235,7 +1447,105 @@ function setView(v) {
   document.getElementById('calViewBtn').classList.toggle('active',  v === 'cal');
   document.getElementById('listViewBtn').classList.toggle('active', v === 'list');
 }
+
+// ── 지원사업 알림 모달 ──
+function openSubscribeModal() {
+  document.getElementById('subOverlay').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeSubscribeModal() {
+  document.getElementById('subOverlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function handleOverlayClick(e) {
+  if (e.target === document.getElementById('subOverlay')) closeSubscribeModal();
+}
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeSubscribeModal();
+});
+
+const subscribeForm = document.getElementById("subscribeForm");
+const subscribeStatus = document.getElementById("subscribeStatus");
+const subscribeBtn = document.getElementById("subscribeBtn");
+
+if (subscribeForm) {
+  subscribeForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+
+    subscribeStatus.textContent = "";
+    subscribeBtn.disabled = true;
+    subscribeBtn.style.opacity = "0.7";
+
+    const formData = new FormData(subscribeForm);
+    const isKo = document.body.classList.contains("ko");
+
+    const payload = {
+      name: formData.get("sub_name"),
+      email: formData.get("sub_email"),
+      company: "",
+      inquiryType: "정부 지원사업 알림 신청",
+      message: "AI 영상 제작 관련 정부 지원사업 알림 신청"
+    };
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || "전송 실패");
+      }
+
+      subscribeStatus.textContent = isKo ? "신청이 완료되었습니다. 내일 아침부터 받아보실 수 있습니다." : "Successfully subscribed. You'll start receiving updates tomorrow morning.";
+      subscribeStatus.style.color = "#1d4ed8";
+      subscribeForm.reset();
+      setTimeout(closeSubscribeModal, 1800);
+    } catch (error) {
+      subscribeStatus.textContent = error.message || (isKo ? "신청 중 오류가 발생했습니다." : "An error occurred. Please try again.");
+      subscribeStatus.style.color = "#dc2626";
+    } finally {
+      subscribeBtn.disabled = false;
+      subscribeBtn.style.opacity = "1";
+    }
+  });
+}
 </script>
+
+<!-- SUBSCRIBE MODAL -->
+<div class="sub-overlay" id="subOverlay" onclick="handleOverlayClick(event)">
+  <div class="sub-modal" id="subModal">
+    <button class="sub-close" onclick="closeSubscribeModal()" aria-label="닫기">&#x2715;</button>
+
+    <p class="s-label ko" style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;">정부 지원사업 알림</p>
+    <p class="s-label en" style="font-size:10px;font-weight:700;letter-spacing:0.14em;text-transform:uppercase;color:var(--mid);margin-bottom:6px;">Government Support Alerts</p>
+    <h2 class="sub-modal-title ko">AI 영상 관련 지원사업,<br>매일 받아보세요</h2>
+    <h2 class="sub-modal-title en">Stay Updated on<br>AI Video Support Programs</h2>
+    <p class="sub-modal-desc ko">AI 영상 제작 관련 정부 지원사업 정보를 매일 아침 이메일로 보내드립니다.</p>
+    <p class="sub-modal-desc en">Get daily email updates on government support programs related to AI video production.</p>
+
+    <form id="subscribeForm">
+      <div class="fg">
+        <label class="flabel ko">이름</label>
+        <label class="flabel en">Name</label>
+        <input type="text" class="finput" name="sub_name" placeholder="홍길동" required>
+      </div>
+      <div class="fg">
+        <label class="flabel">Email</label>
+        <input type="email" class="finput" name="sub_email" placeholder="email@company.com" required>
+      </div>
+
+      <button type="submit" class="fsubmit" id="subscribeBtn" style="margin-top:10px;">
+        <span class="ko">신청하기</span>
+        <span class="en">Subscribe</span>
+      </button>
+      <p id="subscribeStatus" style="margin-top:12px; font-size:13px; color:#555;"></p>
+    </form>
+  </div>
+</div>
 
 </body>
 </html>
