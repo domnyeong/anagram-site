@@ -89,33 +89,30 @@ export default function Home() {
       {/* ABOUT */}
       <section id="about">
         <div className="wrap">
-          <div className="about-grid">
-            <div className="fu">
-              <p className="s-label ko">우리에 대하여</p>
-              <p className="s-label en">About</p>
-              <h2 className="s-title ko">안전 교육,<br />이제는 다르게 접근합니다</h2>
-              <h2 className="s-title en">A new approach<br />to safety education</h2>
-              <p className="about-body ko">전통적인 안전 교육은 규정 준수에 집중해 왔습니다. Anagram Communications는 영화제 수상 경력의 감독과 AI 전문가가 함께, 안전 교육을 진정한 스토리텔링의 영역으로 끌어올립니다.</p>
-              <p className="about-body en">Traditional safety education has been about compliance. Anagram Communications, founded by an award-winning film director and AI specialist, elevates safety education into the realm of genuine storytelling.</p>
-              <p className="about-body ko">직원들이 실제로 보고, 기억하고, 행동을 바꾸는 콘텐츠 - 그것이 우리의 목표입니다.</p>
-              <p className="about-body en">Content that workers actually watch, remember, and act upon — that is our mission.</p>
-              <div className="about-tags">
-                <span className="atag ko">시네마틱 제작</span>
-                <span className="atag en">Cinematic Production</span>
-                <span className="atag ko">AI 행동 분석</span>
-                <span className="atag en">AI Behavior Analysis</span>
-                <span className="atag ko">전략 컨설팅</span>
-                <span className="atag en">Strategic Consulting</span>
-              </div>
+          <div className="about-center fu">
+            <h2 className="about-title ko">안전 교육,<br />이제는 다르게 접근합니다</h2>
+            <h2 className="about-title en">A new approach<br />to safety education</h2>
+            <p className="about-body ko">전통적인 안전 교육은 규정 준수에 집중해 왔습니다. Anagram Communications는 영화제 수상 경력의 감독과 AI 전문가가 함께, 안전 교육을 진정한 스토리텔링의 영역으로 끌어올립니다.</p>
+            <p className="about-body en">Traditional safety education has been about compliance. Anagram Communications, founded by an award-winning film director and AI specialist, elevates safety education into the realm of genuine storytelling.</p>
+            <p className="about-body ko">직원들이 실제로 보고, 기억하고, 행동을 바꾸는 콘텐츠 - 그것이 우리의 목표입니다.</p>
+            <p className="about-body en">Content that workers actually watch, remember, and act upon — that is our mission.</p>
+            <div className="about-tags">
+              <span className="atag ko">시네마틱 제작</span>
+              <span className="atag en">Cinematic Production</span>
+              <span className="atag ko">AI 행동 분석</span>
+              <span className="atag en">AI Behavior Analysis</span>
+              <span className="atag ko">전략 컨설팅</span>
+              <span className="atag en">Strategic Consulting</span>
             </div>
+          </div>
 
-            <div className="about-right fu d2">
-              <div className="about-quote-card">
-                <p className="about-quote ko">&quot;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&quot;</p>
-                <p className="about-quote en">&quot;Safety education has traditionally been about compliance. We believe it should be about engagement — content that workers actually watch and remember.&quot;</p>
-                <p className="about-quote-source">— Cho Yangil, Founder &amp; CEO</p>
-              </div>
-            </div>
+          <div className="about-quote ko fu d2">
+            <p>&quot;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&quot;</p>
+            <span>— Cho Yangil, Founder &amp; CEO</span>
+          </div>
+          <div className="about-quote en fu d2">
+            <p>&quot;Safety education has traditionally been about compliance. We believe it should be about engagement — content that workers actually watch and remember.&quot;</p>
+            <span>— Cho Yangil, Founder &amp; CEO</span>
           </div>
         </div>
       </section>
