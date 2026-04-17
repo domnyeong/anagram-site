@@ -264,6 +264,10 @@ nav {
   background: var(--off);
 }
 
+/* 모바일 메뉴 — 기본 숨김 (미디어쿼리 밖에서도 공간 차지 방지) */
+.mobile-menu { display: none; }
+.hamburger { display: none; }
+
 /* ── DIVIDER ── */
 .rule { height: 1px; background: var(--border); }
 
@@ -1000,21 +1004,24 @@ body.en .ko { display: none; }
   --lms-tag-bg:   #F0F0F0;
 }
 
-.lms-body { display: flex; }
+.lms-body {
+  display: flex;
+  align-items: stretch;
+  min-height: calc(100vh - 68px);
+}
 
 .lnb {
   width: 200px;
-  min-height: calc(100vh - 68px);
   background: #f8f8f8;
-  padding: 2rem 0;
+  padding: 0 0 2rem;
   border-right: 1px solid #e8e8e8;
   flex-shrink: 0;
 }
 .lnb-title {
-  font-size: 11px;
+  font-size: 13px;
   letter-spacing: 0.12em;
   color: #aaa;
-  padding: 0 1.5rem 1rem;
+  padding: 1.5rem 1.5rem 1rem;
   text-transform: uppercase;
 }
 .lnb-item {
@@ -1032,9 +1039,9 @@ body.en .ko { display: none; }
 .lnb-item.active { color: #111; background: rgba(0,0,0,0.06); border-left: 2px solid #111; padding-left: calc(1.5rem - 2px); font-weight: 600; }
 .lnb-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.5; }
 
-.lms-main { flex: 1; overflow: hidden; }
-.lms-page { display: none; padding: 0 2.5rem 2.5rem; }
-.lms-page.active { display: block; }
+.lms-main { flex: 1; overflow: hidden; margin-top: 0; }
+.lms-page { display: none; padding-top: 0; padding-right: 2.5rem; padding-bottom: 2.5rem; padding-left: 2.5rem; margin-top: 0; }
+.lms-page.active { display: block; padding-top: 0; margin-top: 0; }
 
 .lms-hero {
   background: #111111;
