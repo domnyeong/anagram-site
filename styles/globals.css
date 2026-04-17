@@ -360,8 +360,8 @@ nav {
   max-width: 700px;
   margin: 40px auto 0;
   padding: 40px 0;
-  border-top: 1px solid #e0e0e0;
-  border-bottom: 1px solid #e0e0e0;
+  /* border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0; */
   text-align: center;
   background: none;
 }
@@ -407,6 +407,7 @@ nav {
   position: relative;
   overflow: hidden;
   transition: box-shadow 0.25s, transform 0.25s;
+  min-height: 340px;
 }
 
 .ecard::before { display: none; }
@@ -644,6 +645,15 @@ nav {
   color: var(--dark);
   letter-spacing: -0.01em;
   font-style: normal;
+}
+.lead-quote {
+  font-size: 24px;
+  font-weight: 400;
+  font-style: italic;
+  line-height: 1.65;
+  color: var(--black);
+  letter-spacing: -0.025em;
+  margin: 0 0 28px;
 }
 
 .lead-bio {
@@ -1040,7 +1050,7 @@ body.en .ko { display: none; }
 .lnb-dot { width: 5px; height: 5px; border-radius: 50%; background: currentColor; flex-shrink: 0; opacity: 0.5; }
 
 .lms-main { flex: 1; overflow: hidden; margin-top: 0; }
-.lms-page { display: none; padding-top: 0; padding-right: 2.5rem; padding-bottom: 2.5rem; padding-left: 2.5rem; margin-top: 0; }
+.lms-page { display: none; padding-top: 2.5rem; padding-right: 2.5rem; padding-bottom: 2.5rem; padding-left: 2.5rem; margin-top: 0; }
 .lms-page.active { display: block; padding-top: 0; margin-top: 0; }
 
 .lms-hero {

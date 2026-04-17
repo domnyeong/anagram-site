@@ -106,14 +106,14 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="about-quote ko fu d2">
+          {/* <div className="about-quote ko fu d2">
             <p>&quot;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&quot;</p>
             <span>— Cho Yangil, Founder &amp; CEO</span>
           </div>
           <div className="about-quote en fu d2">
             <p>&quot;Safety education has traditionally been about compliance. We believe it should be about engagement — content that workers actually watch and remember.&quot;</p>
             <span>— Cho Yangil, Founder &amp; CEO</span>
-          </div>
+          </div> */}
         </div>
       </section>
 
@@ -327,10 +327,8 @@ export default function Home() {
               <p className="lead-role">Founder &amp; CEO<br />Anagram Communications, Inc.</p>
             </div>
             <div className="lead-right fu d2">
-              <div className="lead-quote-card">
-                <p className="ko">&quot;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&quot;</p>
-                <p className="en">&quot;Safety education has traditionally been about compliance. We believe it should be about engagement. By applying the storytelling techniques of cinema and the precision of AI, we create content that workers actually watch and remember.&quot;</p>
-              </div>
+              <p className="lead-quote ko">&ldquo;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&rdquo;</p>
+              <p className="lead-quote en">&ldquo;Safety education has traditionally been about compliance. We believe it should be about engagement. By applying the storytelling techniques of cinema and the precision of AI, we create content that workers actually watch and remember.&rdquo;</p>
               <p className="lead-bio ko">국제 영화제 수상 경력의 영화 감독 출신. AI와 영화 제작의 교차점에서 산업 안전 교육의 새로운 패러다임을 만들어가고 있습니다. 영화가 사람의 마음을 움직이듯, 안전 교육도 그럴 수 있다는 믿음으로 Anagram Communications를 창립했습니다.</p>
               <p className="lead-bio en">Award-winning film director and AI Director for major International Film Festivals. At the intersection of AI and cinema, he is building a new paradigm for industrial safety education — founded on the belief that safety content can move people the way great films do.</p>
             </div>
