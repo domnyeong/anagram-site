@@ -9,7 +9,7 @@
   --mid:    #999999;
   --dark:   #444444;
   --black:  #111111;
-  --r:      16px;
+  --r:      30px;
   --max:    1480px;
 }
 
@@ -569,6 +569,20 @@ nav {
 .industry-card:hover {
   box-shadow: 0 8px 40px rgba(0,0,0,0.08);
   transform: translateY(-4px);
+}
+
+.industry-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: var(--off);
+  color: var(--dark);
+  margin-bottom: 24px;
+  flex-shrink: 0;
 }
 
 .industry-title {

@@ -69,7 +69,7 @@ export default function Home() {
         <h1 className="hero-h1">
           <span className="hero-white">Cinema</span><br />
           <span className="light-word">for</span><br />
-          <span className="hero-white">Safety.</span>
+          <span className="hero-white">Safety</span>
         </h1>
 
         <div className="hero-bottom">
@@ -295,12 +295,68 @@ export default function Home() {
           </div>
           <div className="industries-grid">
             {[
-              { num: 'd1', titleKo: '제조 산업', titleEn: 'Manufacturing', bodyKo: '생산 라인과 설비 중심의 산업 환경에서 실제 작업 상황을 반영한 안전 교육 콘텐츠를 제작합니다.', bodyEn: 'Safety training tailored to real production environments, reflecting actual machinery operations and workflows.' },
-              { num: 'd2', titleKo: '건설 산업', titleEn: 'Construction', bodyKo: '고위험 작업 환경에서 필요한 안전 인식과 행동 변화를 스토리 기반 교육 콘텐츠로 전달합니다.', bodyEn: 'Story-driven safety education designed for high-risk construction environments and field operations.' },
-              { num: 'd3', titleKo: '공공기관', titleEn: 'Public Sector', bodyKo: '공공기관과 공기업의 안전 교육 프로그램을 보다 몰입도 높은 콘텐츠로 재설계합니다.', bodyEn: 'Reimagining safety education programs for public institutions and government organizations.' },
-              { num: '', titleKo: '플랜트 / 중공업', titleEn: 'Heavy Industry & Plants', bodyKo: '복잡한 공정과 대형 설비가 있는 산업 현장에서 사고 예방 중심의 교육 콘텐츠를 제공합니다.', bodyEn: 'Safety education for complex industrial plants and heavy machinery environments.' },
+              {
+                num: 'd1', titleKo: '제조 산업', titleEn: 'Manufacturing',
+                bodyKo: '생산 라인과 설비 중심의 산업 환경에서 실제 작업 상황을 반영한 안전 교육 콘텐츠를 제작합니다.',
+                bodyEn: 'Safety training tailored to real production environments, reflecting actual machinery operations and workflows.',
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <circle cx="12" cy="12" r="3"/>
+                    <path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+                  </svg>
+                ),
+              },
+              {
+                num: 'd2', titleKo: '건설 산업', titleEn: 'Construction',
+                bodyKo: '고위험 작업 환경에서 필요한 안전 인식과 행동 변화를 스토리 기반 교육 콘텐츠로 전달합니다.',
+                bodyEn: 'Story-driven safety education designed for high-risk construction environments and field operations.',
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <line x1="8" y1="21" x2="8" y2="5"/>
+                    <line x1="3" y1="5" x2="20" y2="5"/>
+                    <line x1="8" y1="5" x2="4" y2="9"/>
+                    <path d="M16 5v9a2 2 0 0 0 4 0v-1"/>
+                    <line x1="5" y1="21" x2="11" y2="21"/>
+                  </svg>
+                ),
+              },
+              {
+                num: 'd3', titleKo: '공공기관', titleEn: 'Public Sector',
+                bodyKo: '공공기관과 공기업의 안전 교육 프로그램을 보다 몰입도 높은 콘텐츠로 재설계합니다.',
+                bodyEn: 'Reimagining safety education programs for public institutions and government organizations.',
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M3 9L12 3l9 6"/>
+                    <line x1="3" y1="9" x2="21" y2="9"/>
+                    <line x1="6" y1="9" x2="6" y2="18"/>
+                    <line x1="10" y1="9" x2="10" y2="18"/>
+                    <line x1="14" y1="9" x2="14" y2="18"/>
+                    <line x1="18" y1="9" x2="18" y2="18"/>
+                    <line x1="3" y1="18" x2="21" y2="18"/>
+                    <line x1="2" y1="21" x2="22" y2="21"/>
+                  </svg>
+                ),
+              },
+              {
+                num: '', titleKo: '플랜트 / 중공업', titleEn: 'Heavy Industry & Plants',
+                bodyKo: '복잡한 공정과 대형 설비가 있는 산업 현장에서 사고 예방 중심의 교육 콘텐츠를 제공합니다.',
+                bodyEn: 'Safety education for complex industrial plants and heavy machinery environments.',
+                icon: (
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+                    <rect x="8" y="4" width="8" height="14" rx="1"/>
+                    <line x1="8" y1="9" x2="16" y2="9"/>
+                    <line x1="8" y1="13" x2="16" y2="13"/>
+                    <line x1="8" y1="7" x2="4" y2="7"/>
+                    <line x1="16" y1="11" x2="20" y2="11"/>
+                    <line x1="12" y1="18" x2="12" y2="21"/>
+                    <line x1="8" y1="18" x2="5" y2="21"/>
+                    <line x1="16" y1="18" x2="19" y2="21"/>
+                  </svg>
+                ),
+              },
             ].map((ind) => (
               <div key={ind.titleEn} className={`industry-card fu${ind.num ? ' ' + ind.num : ''}`}>
+                <div className="industry-icon">{ind.icon}</div>
                 <h3 className="industry-title ko">{ind.titleKo}</h3>
                 <h3 className="industry-title en">{ind.titleEn}</h3>
                 <p className="industry-body ko">{ind.bodyKo}</p>
@@ -335,7 +391,7 @@ export default function Home() {
             <div className="lead-right fu d2">
               <p className="lead-quote ko">&ldquo;안전 교육은 규정 준수가 아니라 참여에 관한 것이어야 합니다. 영화의 스토리텔링 기법과 AI의 정밀함을 결합해, 근로자들이 실제로 보고 기억하는 콘텐츠를 만듭니다.&rdquo;</p>
               <p className="lead-quote en">&ldquo;Safety education has traditionally been about compliance. We believe it should be about engagement. By applying the storytelling techniques of cinema and the precision of AI, we create content that workers actually watch and remember.&rdquo;</p>
-              <p className="lead-bio ko">국제 영화제 수상 경력의 영화 감독 출신. AI와 영화 제작의 교차점에서 산업 안전 교육의 새로운 패러다임을 만들어가고 있습니다. 영화가 사람의 마음을 움직이듯, 안전 교육도 그럴 수 있다는 믿음으로 Anagram Communications를 창립했습니다.</p>
+              <p className="lead-bio ko">국제 영화제 수상 경력의 영화 감독 출신. AI와 영화 제작의 교차점에서 산업 안전 교육의 새로운 패러다임을 <br />만들어가고 있습니다. 영화가 사람의 마음을 움직이듯, 안전 교육도 그럴 수 있다는 믿음으로 Anagram Communications를 창립했습니다.</p>
               <p className="lead-bio en">Award-winning film director and AI Director for major International Film Festivals. At the intersection of AI and cinema, he is building a new paradigm for industrial safety education — founded on the belief that safety content can move people the way great films do.</p>
             </div>
           </div>
