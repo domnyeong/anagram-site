@@ -1,5 +1,6 @@
 import Head from 'next/head';
 import { useEffect, useRef, useState } from 'react';
+import { useScrollReveal } from '../hooks/useScrollReveal';
 
 export default function Home() {
   const [formData, setFormData] = useState({
@@ -7,6 +8,9 @@ export default function Home() {
   });
   const [formStatus, setFormStatus] = useState('');
   const [submitting, setSubmitting] = useState(false);
+
+  const heroDescRef = useScrollReveal(0.05);
+  const heroCtaRef = useScrollReveal(0.05);
 
   // Intersection Observer for .fu scroll animations
   useEffect(() => {
@@ -69,13 +73,15 @@ export default function Home() {
         </h1>
 
         <div className="hero-bottom">
-          <p className="hero-desc ko">
-            영화적 스토리텔링과 AI 분석을 결합해, 산업 현장에서 실제 행동 변화를 이끄는 안전교육 솔루션을 만듭니다.
-          </p>
-          <p className="hero-desc en">
-            We combine cinematic storytelling and AI analytics to create safety education solutions that drive real behavioral change in industrial environments.
-          </p>
-          <div className="hero-cta">
+          <div ref={heroDescRef} className="sr">
+            <p className="hero-desc ko">
+              영화적 스토리텔링과 AI 분석을 결합해, <br />산업 현장에서 실제 행동 변화를 이끄는 안전교육 솔루션을 만듭니다.
+            </p>
+            <p className="hero-desc en">
+              We combine cinematic storytelling and AI analytics to create safety education solutions that drive real behavioral change in industrial environments.
+            </p>
+          </div>
+          <div ref={heroCtaRef} className="hero-cta sr sr-d1">
             <a href="#contact" className="btn-black ko">도입 문의하기</a>
             <a href="#contact" className="btn-black en">Get in Touch</a>
             <a href="#expertise" className="btn-line ko">전문 분야 보기</a>
@@ -129,7 +135,7 @@ export default function Home() {
               <h2 className="s-title ko">세 가지 핵심 역량</h2>
               <h2 className="s-title en">Three Core Competencies</h2>
             </div>
-            <p className="s-head-right ko">영화, AI, 전략의 결합으로 안전 교육의 패러다임을 바꿉니다.</p>
+            <p className="s-head-right ko">영화, AI, 전략의 결합으로<br /> 안전 교육의 패러다임을 바꿉니다</p>
             <p className="s-head-right en">Cinema, AI, and strategic consulting — redefining safety education together.</p>
           </div>
           <div className="exp-grid">
@@ -173,10 +179,10 @@ export default function Home() {
             <div>
               <p className="s-label ko">솔루션</p>
               <p className="s-label en">Solutions</p>
-              <h2 className="s-title ko">우리가 제공하는 것</h2>
+              <h2 className="s-title ko">제공하는 솔루션</h2>
               <h2 className="s-title en">What We Deliver</h2>
             </div>
-            <p className="s-head-right ko">Anagram Communications는 산업 현장에 맞춘 안전교육의 전 과정을 설계합니다.</p>
+            <p className="s-head-right ko">Anagram Communications는 <br />산업 현장에 맞춘 안전교육의 전 과정을 설계합니다</p>
             <p className="s-head-right en">Anagram Communications designs the full workflow of safety education for real industrial environments.</p>
           </div>
           <div className="solutions-grid">
@@ -217,7 +223,7 @@ export default function Home() {
               <h2 className="s-title ko">협업 프로세스</h2>
               <h2 className="s-title en">How We Work</h2>
             </div>
-            <p className="s-head-right ko">현장 이해부터 콘텐츠 제작, 분석과 개선까지 안전교육의 전 과정을 함께 설계합니다.</p>
+            <p className="s-head-right ko">현장 이해부터 콘텐츠 제작, 분석과 개선까지 <br />안전교육의 전 과정을 함께 설계합니다</p>
             <p className="s-head-right en">From site diagnosis to content production, analysis, and optimization — we design the full safety education workflow together.</p>
           </div>
           <div className="process-list">
@@ -284,7 +290,7 @@ export default function Home() {
               <h2 className="s-title ko">다양한 산업 현장에서 활용됩니다</h2>
               <h2 className="s-title en">Industries We Serve</h2>
             </div>
-            <p className="s-head-right ko">제조, 건설, 공공기관 등 다양한 산업 현장에서 안전 교육과 위험 인식 개선을 지원합니다.</p>
+            <p className="s-head-right ko">제조, 건설, 공공기관 등 다양한 산업 현장에서 <br />안전 교육과 위험 인식 개선을 지원합니다</p>
             <p className="s-head-right en">Our solutions support safety education and risk awareness across multiple industrial sectors.</p>
           </div>
           <div className="industries-grid">
