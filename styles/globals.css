@@ -52,6 +52,7 @@ nav {
   color: var(--black);
   text-decoration: none;
 }
+.logo-short { display: none; }
 
 .nav-links {
   display: flex;
@@ -1305,7 +1306,7 @@ body.en .ko { display: none; }
 .view-btn.active { background: var(--lms-ink); color: #f8f8f8; }
 
 .full-calendar { display: grid; grid-template-columns: repeat(7, 1fr); gap: 1px; background: var(--lms-border); border: 1px solid var(--lms-border); border-radius: 12px; overflow: hidden; }
-.cal-head { background: #111111; color: rgba(248,248,248,0.4); font-size: 12px; letter-spacing: 0.06em; text-align: center; padding: 10px 4px; }
+.cal-head { background: #111111; color: #FFFFFF; font-size: 12px; letter-spacing: 0.06em; text-align: center; padding: 10px 4px; }
 .cal-cell { background: var(--lms-card-bg); min-height: 90px; padding: 8px; }
 .cal-cell.empty { background: var(--lms-tag-bg); }
 .cal-cell.today-cell { background: rgba(0,0,0,0.02); }
@@ -1367,6 +1368,28 @@ body.en .ko { display: none; }
 
 .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; }
 
+/* ── LMS 모바일 탭 (데스크탑: 숨김) ── */
+.lms-mobile-tabs { display: none;  padding: 0 20px; gap: 8px;}
+.lms-tab {
+  flex-shrink: 0;
+  height: 44px;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-family: 'Pretendard', sans-serif;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: #999;
+  background: #fff;
+  border: none;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.15s, background 0.15s;
+}
+.lms-tab.active {
+  background: #111;
+  color: #fff;
+}
+
 /* ══════════════════════════════════════
    RESPONSIVE — 태블릿 (≤ 1024px)
 ══════════════════════════════════════ */
@@ -1398,6 +1421,8 @@ body.en .ko { display: none; }
   .nav-right { gap: 8px; }
   .btn-contact { display: none; }
   .btn-subscribe { display: none; }
+  .logo-full { display: none; }
+  .logo-short { display: inline; }
 
   .mobile-menu .m-subscribe {
     margin-top: 8px;
@@ -1520,6 +1545,23 @@ body.en .ko { display: none; }
   /* LMS 모바일 */
   .lms-wrap { padding-top: 60px; }
   .lnb { display: none; }
+  .lms-mobile-tabs {
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    position: sticky;
+    top: 60px;
+    z-index: 50;
+    background: #fff;
+    border-bottom: 1px solid rgba(0,0,0,0.08);
+    padding: 0 16px;
+  }
+  .lms-mobile-tabs::-webkit-scrollbar { display: none; }
+  .lms-tab { padding: 0 20px; }
+  .cal-head { font-size: 9px; padding: 8px 2px; }
+  .cal-cell { min-height: 60px; padding: 6px; }
+  .cal-num { font-size: 11px; }
   .vid-grid { grid-template-columns: 1fr; }
   .two-col { grid-template-columns: 1fr; }
   .course-select-grid { grid-template-columns: 1fr; }

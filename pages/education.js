@@ -10,6 +10,13 @@ function buildCal(year, month) {
   return { firstDay, daysInMonth, trailingCells };
 }
 
+const navItems = [
+  { key: 'home',     label: '홈' },
+  { key: 'preview',  label: '맛보기 샘플' },
+  { key: 'schedule', label: '교육 일정' },
+  { key: 'enroll',   label: '수강 신청' },
+];
+
 export default function Education() {
   const [page, setPage] = useState('home');
   const [selectedCourse, setSelectedCourse] = useState(0);
@@ -52,17 +59,26 @@ export default function Education() {
       </Head>
 
       <div className="lms-wrap">
+
+        {/* 모바일 탭 바 */}
+        <div className="lms-mobile-tabs">
+          {navItems.map((item) => (
+            <button
+              key={item.key}
+              className={`lms-tab${page === item.key ? ' active' : ''}`}
+              onClick={() => showPage(item.key)}
+            >
+              {item.label}
+            </button>
+          ))}
+        </div>
+
         <div className="lms-body">
 
           {/* LNB */}
           <div className="lnb">
             <div className="lnb-title">안전 교육</div>
-            {[
-              { key: 'home', label: '홈' },
-              { key: 'preview', label: '맛보기 샘플' },
-              { key: 'schedule', label: '교육 일정' },
-              { key: 'enroll', label: '수강 신청' },
-            ].map((item) => (
+            {navItems.map((item) => (
               <div
                 key={item.key}
                 className={`lnb-item${page === item.key ? ' active' : ''}`}

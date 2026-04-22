@@ -23,7 +23,10 @@ export default function Nav() {
   return (
     <>
       <nav>
-        <Link className="logo" href="/">Anagram Communications, Inc</Link>
+        <Link className="logo" href="/">
+          <span className="logo-full">Anagram Communications, Inc</span>
+          <span className="logo-short">Anagram</span>
+        </Link>
         <ul className="nav-links">
           <li>
             <a href={homeHref('#about')} className="ko" onClick={closeMobile}>회사 소개</a>
